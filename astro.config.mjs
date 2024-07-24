@@ -6,5 +6,17 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://example.com',
-	integrations: [mdx(), sitemap()]
+	integrations: [mdx(), sitemap()],
+	markdown: {
+		// https://shiki.style/themes
+		shikiConfig: {
+			theme: 'dracula',
+			themes: {
+				light: 'dracula',
+				dark: 'dracula',
+			  },
+			defaultColor: false,
+			wrap: false,
+		}
+	}
 });
