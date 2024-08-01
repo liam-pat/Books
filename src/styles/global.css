@@ -17,14 +17,14 @@
 }
 @font-face {
 	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
+	src: url('https://hk-saver.s3.ap-east-1.amazonaws.com/fonts/atkinson/atkinson-regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
+	src: url('https://hk-saver.s3.ap-east-1.amazonaws.com/fonts/atkinson/atkinson-bold.woff') format('woff');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -152,11 +152,11 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
-
+/* code font */
 .astro-code{
 	font-size: 10px;
 }
-
+/* article content font size*/
 .prose{
 	font-size: 16px;
 }

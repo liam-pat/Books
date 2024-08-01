@@ -27,9 +27,12 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				margin: 0 auto;
 				border-radius: 12px;
 				box-shadow: var(--box-shadow);
+				object-fit: cover;
+				width: 1500px;
+				height: 510px;
 			}
 			.prose {
-				width: 720px;
+				width: 1400px;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
@@ -61,12 +64,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="hero-image">
 					{heroImage && <img width={1020} height={510} src={heroImage} alt="" />}
 				</div>
+
 				<div class="prose">
 					<div class="title">
 						<div class="date">
 							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
+							{ updatedDate &&
+								(
 									<div class="last-updated-on">
 										Last updated on <FormattedDate date={updatedDate} />
 									</div>
@@ -78,6 +82,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					</div>
 					<slot />
 				</div>
+
 			</article>
 		</main>
 		<Footer />
