@@ -156,7 +156,6 @@ hr {
 .astro-code{
 	font-size: 10px;
 }
-/* article content font size*/
-.prose{
-	font-size: 16px;
+.prose img {
+    cursor: zoom-in;
 }
