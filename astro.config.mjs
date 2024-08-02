@@ -6,7 +6,7 @@ import {rehypeAccessibleEmojis} from 'rehype-accessible-emojis';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://book.biyongyao.com',
 	integrations: [mdx(), sitemap()],
 	markdown: {
 		shikiConfig: {
