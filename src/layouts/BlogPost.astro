@@ -4,10 +4,14 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import LeftSidebar from "../components/LeftSideBar.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const pageUrl = new URL(Astro.request.url);
+const currentPage = pageUrl.pathname;
 ---
 
 <html lang="en">
@@ -30,10 +34,10 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 object-fit: cover;
                 width: 900px;
                 height: 500px;
-				cursor: pointer;
+                cursor: pointer;
             }
             .prose {
-				font-size: 16px;
+                font-size: 16px;
                 width: 1000px;
                 max-width: calc(100% - 2em);
                 margin: auto;
@@ -56,26 +60,47 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             .last-updated-on {
                 font-style: italic;
             }
+
+            .grid-sidebar {
+                height: 100vh;
+                position: sticky;
+            }
+            #grid-left {
+                position: fixed;
+                background-color: var(--theme-bg);
+                z-index: 10;
+                display: none;
+                max-width: 190px;
+
+                overflow:hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            @media (min-width: 90em) {
+                #grid-left {
+                    display: flex;
+                    padding-left: 2rem;
+                    position: fixed;
+                    grid-column: 1;
+                }
+            }
         </style>
     </head>
 
     <body>
         <Header />
+        <div id="grid-left" class="grid-sidebar" title="Site Navigation">
+            <LeftSidebar title={title} currentPage={currentPage} />
+        </div>
         <main>
             <article>
                 <div class="hero-image">
                     {
                         heroImage && (
-                            <img
-                                width={1020}
-                                height={510}
-                                src={heroImage}
-                                alt=""
-                            />
+                            <img width={1020} height={510} src={heroImage} alt=""/>
                         )
                     }
                 </div>
-
                 <div class="prose" id="write">
                     <div class="title">
                         <div class="date">
